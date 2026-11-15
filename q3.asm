@@ -36,7 +36,7 @@ main proc
       
       add al, dl
       add al, dh
-      mov B[si], al B[si]
+      mov B[si], al
       
       inc si
       loop Loop
