@@ -50,7 +50,7 @@ calc_loop:
 
      mov cx, 10
      mov si, 0
-
+     
 print_loop:
      mov al, B[si]
      mov ah, 0
@@ -63,16 +63,16 @@ print_loop:
 
      mov ah, 0
      div bl
-     mov ch, ah
+     mov dh, ah
 
-     ; Forst digit print
+     ; First digit print
      mov dl, al
      add dl, 48
      mov ah, 02h
      int 21h
 
      ; Second digit print
-     mov dl, ch
+     mov dl, dh
      add dl, 48
      mov ah, 02h
      int 21h
@@ -95,8 +95,8 @@ last_digit:
      int 21h
 
      inc si
-     dec cl
-     jnz print_loop
+     loop print_loop
+
       
      mov ah, 4ch
      int 21h
